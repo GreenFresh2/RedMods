@@ -9,8 +9,26 @@
 #include "..\STDInclude.h"
 
 // Add the asset to FS.
-typedef int (__cdecl* DB_AddXAsset_t)(int Type, int Header);
-DB_AddXAsset_t DB_AddXAsset = (DB_AddXAsset_t)0x00;
+DWORD DB_AddXAssetLoc = 0x00;
+void _declspec(naked) XAssetStub(ScriptParseTree** scriptParseTree)
+{
+	__asm
+	{
+		push esi;
+		_emit 0x8B; 
+		_emit 0x74; 
+		_emit 0x24; 
+		_emit 0x08;
+		mov eax, [esi];
+		push eax;
+		mov eax, 0x30;
+		call DB_AddXAssetLoc;
+		add esp, 4;
+		mov [esi], eax;
+		pop esi;
+		retn;
+	}
+}
 
 // Modify asset before adding.
 StompHook ScriptParseHook;
@@ -40,20 +58,20 @@ void Load_ScriptParseTreeAsset(ScriptParseTree** scriptParseTree)
 	//DBG("%s ( \"%s\" )\n", __FUNCTION__, (*scriptParseTree)->name);
 
 	// Return the requested GSC.
-	*scriptParseTree = (ScriptParseTree*)DB_AddXAsset(0x30, (int)scriptParseTree);
+	return XAssetStub(scriptParseTree);
 }
 
 void InitGSC()
 {
 	if(isMultiplayer)
 	{
-		DB_AddXAsset = (DB_AddXAsset_t)0x007FBCB0;
+		DB_AddXAssetLoc = 0x007FBCB0;
 		ScriptParseHook.initialize(0x005E7060, Load_ScriptParseTreeAsset);
 		ScriptParseHook.installHook();
 	}
 	else
 	{
-		DB_AddXAsset = (DB_AddXAsset_t)0x007F3A10;
+		DB_AddXAssetLoc = 0x007F3A10;
 		ScriptParseHook.initialize(0x00555F40, Load_ScriptParseTreeAsset);
 		ScriptParseHook.installHook();
 	}

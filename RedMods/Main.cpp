@@ -35,15 +35,24 @@ void Init()
 	// Verify that we got the correct one.
 	DBG("Main binary: %s\n", isMultiplayer ? "Multiplayer" : "Zombie");
 
+	// Read the settings.
+	ReadINI();
+
 	// Our public patches.
 	InitGSC();
 	InitHKS();
 }
 
 // Called after the game is started.
-__declspec(dllexport) void PostInit()
+extern "C" 
 {
-	PostInitGSC();
+	__declspec(dllexport) int PostInit()
+	{
+		DBG("PostInit..\n");
+		PostInitGSC();
+
+		return 1;
+	}
 }
 
 BOOL __stdcall DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved)
