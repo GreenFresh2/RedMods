@@ -30,6 +30,15 @@
     <ClInclude Include="HKS\HKS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Command\Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Notify\Notify.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bots\Bots.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GlobalVariables.cpp">
@@ -45,6 +54,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Notify\Notify.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bots\Bots.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

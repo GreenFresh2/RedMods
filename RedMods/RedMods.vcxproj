@@ -70,17 +70,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bots\Bots.h" />
+    <ClInclude Include="Command\Command.h" />
     <ClInclude Include="GlobalVariables.h" />
     <ClInclude Include="GSC\GSC.h" />
     <ClInclude Include="HKS\HKS.h" />
+    <ClInclude Include="Notify\Notify.h" />
     <ClInclude Include="STDInclude.h" />
     <ClInclude Include="Utility\Utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bots\Bots.cpp" />
+    <ClCompile Include="Command\Command.cpp" />
     <ClCompile Include="GlobalVariables.cpp" />
     <ClCompile Include="GSC\GSC.cpp" />
     <ClCompile Include="HKS\HKS.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Notify\Notify.cpp" />
     <ClCompile Include="Utility\Utility.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

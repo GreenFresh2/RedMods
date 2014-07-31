@@ -50,6 +50,9 @@
 #include "Utility\Utility.h"
 #include "GSC\GSC.h"
 #include "HKS\HKS.h"
+#include "Notify\Notify.h"
+#include "Command\Command.h"
+#include "Bots\Bots.h"
 
 
 
