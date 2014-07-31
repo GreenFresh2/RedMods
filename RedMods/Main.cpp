@@ -41,6 +41,9 @@ void Init()
 	// Our public patches.
 	InitGSC();
 	InitHKS();
+	InitBots();
+	InitNotify();
+	InitCommands();
 }
 
 // Called after the game is started.
