@@ -26,3 +26,6 @@ extern Cbuf_AddText_t Cbuf_AddText;
 int Cmd_ArgC();
 char* Cmd_ArgV(int index);
 void InitCommands();
+
+// Print to external console int zombies and multiplayer
+#define Com_Printf(fmt, ...) ((void(*)(const char*))(isMultiplayer ? 0x452300 : 0x6C8380))(va(fmt, ##__VA_ARGS__))
