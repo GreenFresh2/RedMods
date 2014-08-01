@@ -57,8 +57,15 @@ void Notify(int clientNum, char* notify)
 
 void InitNotify()
 {
+	// Assign zombie stuff
 	if(!isMultiplayer)
 	{
-		// TODO: Re-assign functions
+		SL_GetString = (SL_GetString_t)0x566990;
+		SL_ConvertToString = (SL_ConvertToString_t)0x5DBE10;
+		Scr_NotifyNum = (Scr_NotifyNum_t)0x6B2430;
+		Scr_AddString = (Scr_AddString_t)0x5579D0;
+		Scr_AddEntity = (Scr_AddEntity_t)0x51A1F0;
+		Scr_AddInt = (Scr_AddInt_t)0x4DB240;
+		Scr_GetString = (Scr_GetString_t)0x42F990;
 	}
 }
