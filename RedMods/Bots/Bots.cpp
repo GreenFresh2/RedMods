@@ -9,6 +9,7 @@
 #include "..\STDInclude.h"
 
 SV_AddTestClient_t SV_AddTestClient = (SV_AddTestClient_t)0x62C140;
+SV_Loaded_t SV_Loaded = (SV_Loaded_t)0x580AA0;
 
 void SpawnBots(int amount)
 {
@@ -46,8 +47,11 @@ void spawnBot_f()
 {
 	int count = (Cmd_ArgC() > 1 ? atoi(Cmd_ArgV(1)) : 1);
 
-	SpawnBots(count);
-
+	// Check if ingame and host
+	if(SV_Loaded())
+	{
+		SpawnBots(count);
+	}
 }
 
 void autoChangeClass_f()
