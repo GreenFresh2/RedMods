@@ -21,7 +21,7 @@ void SpawnBots(unsigned int amount)
 	// Add desired amount of bots
 	std::vector<g_entity_s*> entRefs;
 
-	for(unsigned  i = 0; i < amount; i++)
+	for(unsigned int i = 0; i < amount; i++)
 	{
 		Sleep(10);
 
