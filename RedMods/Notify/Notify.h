@@ -6,11 +6,6 @@
 	Started: 2014-07-31
 */
 
-struct g_entity_s
-{
-	int clientNum;
-};
-
 typedef short (__cdecl * SL_GetString_t)(const char* string, int);
 extern SL_GetString_t SL_GetString;
 

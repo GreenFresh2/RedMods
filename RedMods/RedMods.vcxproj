@@ -75,6 +75,7 @@
     <ClInclude Include="GlobalVariables.h" />
     <ClInclude Include="GSC\GSC.h" />
     <ClInclude Include="HKS\HKS.h" />
+    <ClInclude Include="HudElem\HudElem.h" />
     <ClInclude Include="Notify\Notify.h" />
     <ClInclude Include="STDInclude.h" />
     <ClInclude Include="Utility\Utility.h" />
@@ -85,6 +86,7 @@
     <ClCompile Include="GlobalVariables.cpp" />
     <ClCompile Include="GSC\GSC.cpp" />
     <ClCompile Include="HKS\HKS.cpp" />
+    <ClCompile Include="HudElem\HudElem.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Notify\Notify.cpp" />
     <ClCompile Include="Utility\Utility.cpp" />

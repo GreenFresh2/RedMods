@@ -11,7 +11,9 @@
 SV_AddTestClient_t SV_AddTestClient = (SV_AddTestClient_t)0x62C140;
 SV_Loaded_t SV_Loaded = (SV_Loaded_t)0x580AA0;
 
-void SpawnBots(int amount)
+g_entity_s* g_entities = (g_entity_s*)0x21BF3C0;
+
+void SpawnBots(unsigned int amount)
 {
 	if(!isMultiplayer)
 		return;
@@ -19,8 +21,10 @@ void SpawnBots(int amount)
 	// Add desired amount of bots
 	std::vector<g_entity_s*> entRefs;
 
-	for(int i = 0; i < amount; i++)
+	for(unsigned int i = 0; i < amount; i++)
 	{
+		Sleep(10);
+
 		g_entity_s* entRef = SV_AddTestClient();
 
 		if(entRef)
@@ -50,7 +54,20 @@ void spawnBot_f()
 	// Check if ingame and host
 	if(SV_Loaded())
 	{
-		SpawnBots(count);
+		if(!strcmp(Cmd_ArgV(1), "all"))
+		{
+			SpawnBots(-1);
+			Com_Printf("Max. amount of bots spawned successfully!\n");
+		}
+		else
+		{
+			SpawnBots(count);
+			Com_Printf("%d bots spawned successfully!\n", count);
+		}
+	}
+	else
+	{
+		Com_Printf("You need to be host to spawn bots!\n");
 	}
 }
 
