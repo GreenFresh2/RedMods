@@ -44,6 +44,7 @@ void Init()
 	InitBots();
 	InitNotify();
 	InitCommands();
+	InitHudElem();
 }
 
 // Called after the game is started.
