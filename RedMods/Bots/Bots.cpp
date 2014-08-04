@@ -89,10 +89,6 @@ void InitBots()
 	if(!isMultiplayer)
 		return;
 
-	// Lock party_minplayers (force host)
-	*(BYTE*)0x6FB78D = 0x40;
-	*(BYTE*)0x6FB793 = 1;
-
 	// Add necessary commands
 	static cmd_function_s spawnBot_cmd;
 	static cmd_function_s autoChangeClass_cmd;
